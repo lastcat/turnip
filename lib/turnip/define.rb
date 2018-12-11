@@ -1,6 +1,18 @@
+
 module Turnip
   module Define
+    #rspecで直接呼ばれてる
     def step(method_name=nil, expression, &block)
+
+      ＃TODO: ファイルパス修正する
+      n_phrase = File.read(block.to_s.split("@")[1].split(":")[0]).split("\n")[block.to_s.split("@")[1].split(":")[1].chop.to_i-1]
+      s_phrase =
+      File.read(block.to_s.split("@")[1].split(":")[0]).split("\n")[block.to_s.split("@")[1].split(":")[1].chop.to_i]
+      File.open("/Users/nakaji/Documents/ruby/sample_app/taiou.txt","a") do |f|
+        f.puts n_phrase
+        f.puts s_phrase
+      end
+
       if method_name and block
         raise ArgumentError, "can't specify both method name and a block for a step"
       end

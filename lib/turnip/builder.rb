@@ -28,10 +28,17 @@ module Turnip
       end
     end
 
+    module Id
+      def id
+        @raw.id
+      end
+    end
+
     class Feature
       include Tags
       include Name
       include Line
+      include Id
 
       attr_reader :scenarios, :backgrounds
       attr_accessor :feature_tag
