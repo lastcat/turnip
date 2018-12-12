@@ -4,7 +4,7 @@ module Turnip
     #rspecで直接呼ばれてる
     def step(method_name=nil, expression, &block)
 
-      ＃TODO: ファイルパス修正する
+      #TODO: ファイルパス修正する
       n_phrase = File.read(block.to_s.split("@")[1].split(":")[0]).split("\n")[block.to_s.split("@")[1].split(":")[1].chop.to_i-1]
       s_phrase =
       File.read(block.to_s.split("@")[1].split(":")[0]).split("\n")[block.to_s.split("@")[1].split(":")[1].chop.to_i]
