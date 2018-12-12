@@ -21,7 +21,7 @@ module Turnip
         f_r = f.readlines
         f_r.each_with_index do |line,index|
           if line.include?(matches[0].expression)
-            File.open(Rails.root.to_s + "/sizen.txt","w") do |file|
+            File.open(Rails.root.to_s + "/sizen.txt","a") do |file|
               if matches[0].params[0]
                 file.puts "    " + f_r[index+1].gsub(/text/, "'" + matches[0].params[0] + "'")
               else
