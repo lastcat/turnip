@@ -66,6 +66,7 @@ module Turnip
       include Tags
       include Name
       include Line
+      include Id
 
       attr_accessor :steps
 
