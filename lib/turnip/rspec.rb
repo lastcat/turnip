@@ -86,24 +86,24 @@ module Turnip
               instance_eval <<-EOS, feature_file, scenario.line
                 describe scenario.name, scenario.metadata_hash do
                   before :all do
-                    File.open("/Users/nakaji/Documents/ruby/sample_app/sizen.txt","a") do |f|
+                    File.open(#{Rails.root.to_s} + "/sizen.txt","a") do |f|
                       f.puts "#機能: " + scenario.id
                       f.puts "describe '#{scenario.name}' do"
                     end
                   end
                   it(scenario.steps.map(&:description).join(' -> ')) do
-                    File.open("/Users/nakaji/Documents/ruby/sample_app/sizen.txt","a") do |f|
+                    File.open(#{Rails.root.to_s} + "/sizen.txt","a") do |f|
                       f.puts "  it '#{scenario.steps.map(&:description).join(' -> ')}' do"
                     end
                     scenario.steps.each do |step|
                       run_step(feature_file, step)
                     end
-                    File.open("/Users/nakaji/Documents/ruby/sample_app/sizen.txt","a") do |f|
+                    File.open(#{Rails.root.to_s} + "/sizen.txt","a") do |f|
                       f.puts "  end"
                     end
                   end
                   after :all do
-                    File.open("/Users/nakaji/Documents/ruby/sample_app/sizen.txt","a") do |f|
+                    File.open(#{Rails.root.to_s} + "/sizen.txt","a") do |f|
                       f.puts "end"
                     end
                   end

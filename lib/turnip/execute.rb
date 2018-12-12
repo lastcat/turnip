@@ -17,11 +17,11 @@ module Turnip
         raise Turnip::Ambiguous, msg
       end
       #Todo:ファイルパスを解決
-      File.open("/Users/nakaji/Documents/ruby/sample_app/taiou.txt","r") do |f|
+      File.open(Rails.root.to_s + "/taiou.txt","r") do |f|
         f_r = f.readlines
         f_r.each_with_index do |line,index|
           if line.include?(matches[0].expression)
-            File.open("/Users/nakaji/Documents/ruby/sample_app/sizen.txt","a") do |file|
+            File.open(Rails.root.to_s + "/sizen.txt","w") do |file|
               if matches[0].params[0]
                 file.puts "    " + f_r[index+1].gsub(/text/, "'" + matches[0].params[0] + "'")
               else

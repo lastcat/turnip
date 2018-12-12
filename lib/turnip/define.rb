@@ -8,7 +8,7 @@ module Turnip
       n_phrase = File.read(block.to_s.split("@")[1].split(":")[0]).split("\n")[block.to_s.split("@")[1].split(":")[1].chop.to_i-1]
       s_phrase =
       File.read(block.to_s.split("@")[1].split(":")[0]).split("\n")[block.to_s.split("@")[1].split(":")[1].chop.to_i]
-      File.open("/Users/nakaji/Documents/ruby/sample_app/taiou.txt","a") do |f|
+      File.open(Rails.root.to_s + "/taiou.txt","w") do |f|
         f.puts n_phrase
         f.puts s_phrase
       end
