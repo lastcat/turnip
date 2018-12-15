@@ -93,7 +93,7 @@ module Turnip
                   end
                   it(scenario.steps.map(&:description).join(' -> ')) do
                     File.open(Rails.root.to_s + "/sizen.txt","a") do |f|
-                      f.puts "  it "#{scenario.steps.map(&:description).join(' -> ')gsub(/'/,"%")}" do"
+                      f.puts "  it '#{scenario.steps.map(&:description).join(' -> ').gsub(/'/,"%")}' do"
                     end
                     scenario.steps.each do |step|
                       run_step(feature_file, step)
