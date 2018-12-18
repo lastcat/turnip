@@ -119,7 +119,7 @@ module Turnip
                 describe scenario.name, scenario.metadata_hash do
                   before :all do
                     File.open(Rails.root.to_s + "/sizen.txt","a") do |f|
-                      f.puts "#機能: " + scenario.id
+                      f.puts "#機能: " + scenario.id.split(";")[0]
                       f.puts "describe '#{scenario.name}' do"
                     end
                   end
